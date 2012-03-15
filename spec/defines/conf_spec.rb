@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'limits::conf' do
+  
   let(:title) { 'test_conf' }
 
   let(:params) {
@@ -40,4 +41,5 @@ describe 'limits::conf' do
                    ],
     })
   end
+
 end
