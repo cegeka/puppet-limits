@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe 'limits::conf' do
-  
+
   let(:title) { 'test_conf' }
+
+  let(:facts) { { :operatingsystem => 'redhat' } }
 
   let(:params) {
     {
@@ -16,11 +18,10 @@ describe 'limits::conf' do
   it 'should insert a new entry in /etc/security/limits.conf' do
     should contain_augeas('limits.conf/oracle/soft/nofile/eof').with({
       'context' => '/files/etc/security/limits.conf',
-      'onlyif'  => 'match #comment[. =~ regexp(\"End of file\")] size > 0',
-      'changes' => 'rm #comment[. =~ regexp(\"End of file\")]',
+      'onlyif'  => 'match #comment[. =~ regexp("End of file")] size > 0',
+      'changes' => 'rm #comment[. =~ regexp("End of file")]',
       'require' => 'Class[Limits::Packages]',
     })
-
 
     should contain_augeas('limits.conf/oracle/soft/nofile/rm').with({
       'context' => '/files/etc/security/limits.conf',

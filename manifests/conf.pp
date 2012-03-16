@@ -11,8 +11,8 @@ define limits::conf($domain, $type, $item, $value) {
 
   augeas { "limits.conf/$key/eof":
     context => $context,
-    onlyif  => 'match #comment[. =~ regexp(\"End of file\")] size > 0',
-    changes => 'rm #comment[. =~ regexp(\"End of file\")]',
+    onlyif  => 'match #comment[. =~ regexp("End of file")] size > 0',
+    changes => 'rm #comment[. =~ regexp("End of file")]',
     require => Class['limits::packages'],
   }
 
@@ -34,4 +34,5 @@ define limits::conf($domain, $type, $item, $value) {
       "set domain[last()]/value $value"
     ]
   }
+
 }
