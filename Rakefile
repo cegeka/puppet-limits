@@ -195,7 +195,7 @@ namespace "jenkins" do
     if !git_commit.nil? and !git_commit.empty?
       puts "Saving #{module_name}.yaml file" 
       FileUtils.mkdir_p(dist_dir)
-      open("target/dist/#{module_name}.properties", "w") { |file|
+      open("target/dist/#{module_name}.yaml", "w") { |file|
 	file.puts "module_name: #{module_name}"
 	file.puts "git_commit: #{git_commit}"
       }
