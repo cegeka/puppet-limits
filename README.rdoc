@@ -1,3 +1,4 @@
-= Puppet limits module
+= puppet-limits module
 
-This module is used for setting user limits.
+This is the limits module, used for setting user limits.
+
