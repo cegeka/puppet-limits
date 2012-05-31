@@ -1,5 +1,8 @@
 require File.expand_path('../../env', __FILE__)
 
+$:.unshift(File.join(File.dirname(__FILE__), 'lib'))
+require 'version_helper'
+
 namespace "jenkins" do
   begin
     require 'ci/reporter/rake/rspec'
@@ -33,7 +36,7 @@ namespace "jenkins" do
 
     module_name = ENV['JOB_NAME']
     git_commit = ENV['GIT_COMMIT']
-		semver_version = ENV["#{ENV['JOB_NAME']}_semver_version"]
+		semver_version = VersionHelper.new.semver_version
     
     if !git_commit.nil? and !git_commit.empty?
       puts "Saving #{module_name}.yaml file"
