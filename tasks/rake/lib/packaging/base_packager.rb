@@ -38,6 +38,7 @@ class BasePackager
   end
  
   def build(module_name)
+		ENV["#{ENV['JOB_NAME']}_semver_version"] = @semver_version
     package_name = "cegeka-puppet-#{module_name}"
     destination_file = "#{package_name}#{@first_delimiter}#{@semver_version}-#{@release}#{@second_delimiter}#{@architecture}.#{@package_type}"
     destination_folder = "#{@basedirectory}/#{module_name}/#{RESULTS}/dist"
