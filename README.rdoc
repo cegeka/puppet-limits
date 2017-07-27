@@ -1,6 +1,6 @@
 = puppet-limits module
 
-{<img src='https://codex.cegeka.be/jenkins/job/puppet-limits/badge/icon' />}[https://codex.cegeka.be/jenkins/job/puppet-limits/]
+{<img src='https://jenkins-iac.cegeka.be/job/puppet-limits/badge/icon' />}[https://jenkins-iac.cegeka.be/job/puppet-limits/]
 
 This is the limits module, used for setting user limits.
 
