@@ -1,10 +1,10 @@
 class limits::packages {
 
   case $::operatingsystem {
-    'Debian', 'Ubuntu': {
+    'Debian','Ubuntu': {
       include limits::packages::debian
     }
-    'RedHat,' 'CentOS', 'Fedora': {
+    'RedHat','CentOS','Fedora': {
       include limits::packages::redhat
     }
     default: {
