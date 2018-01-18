@@ -16,10 +16,11 @@
 # [Remember: No empty lines between comments and class definition]
 class limits {
 
-  file { '/etc/security/limits.d':
-    ensure  => absent,
-    recurse => true,
-    force   => true,
-  }
+# this was triggered during the puppet upgrade - should not be triggered
+#  file { '/etc/security/limits.d':
+#    ensure  => absent,
+#    recurse => true,
+#    force   => true,
+#  }
 
 }
