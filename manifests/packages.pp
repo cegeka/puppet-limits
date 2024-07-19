@@ -1,6 +1,6 @@
 class limits::packages {
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     'Debian','Ubuntu': {
       include limits::packages::debian
     }
@@ -8,7 +8,7 @@ class limits::packages {
       include limits::packages::redhat
     }
     default: {
-      fail("Module ${module_name} is not supported on ${::operatingsystem}")
+      fail("Module ${module_name} is not supported on ${facts['os']['name']}")
     }
   }
 
