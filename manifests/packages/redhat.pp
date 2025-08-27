@@ -1,8 +1,10 @@
+# class limits::packages::redhat
+#
 class limits::packages::redhat {
   $virtual_modules = lookup('profile::iac::repository_management::modules::virtual', Array, 'first', [])
   $ruby_module_present = !empty($virtual_modules.filter |$module| { $module =~ /^ruby/ })
 
-  case $::os[release][major] {
+  case $facts['os']['release']['major'] {
     '8': {
       # In certain cases a ruby module stream is already added by the repository_management::modules::virtual profile
       # This leads to a duplicate declaration of the ruby module when used together with the limits profile
