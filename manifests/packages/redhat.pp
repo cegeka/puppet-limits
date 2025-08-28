@@ -3,7 +3,7 @@
 class limits::packages::redhat {
 
   package { ['augeas', 'augeas-libs'] :
-    ensure  => present,
+    ensure => present,
   }
 
 }
